@@ -1,0 +1,10 @@
+med peach/orange tone: #FF9982
+light peach/orange tone: #FAD9D2
+
+light orange: #FFDBB3
+med orange: #FFAD73
+
+med red: #FO7373
+
+
+bg #dfdfdf

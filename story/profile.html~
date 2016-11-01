@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="style-bar">
+      </div>
+      <div id="content">
+	<div id="left-sidebar">
+	</div>
+	<div id="info-pane">
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
