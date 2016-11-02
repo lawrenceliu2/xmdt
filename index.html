@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <title>Meme Man Part 2: Return of the Meme</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
         <style>
             html, body {
                 width: 100%;
@@ -13,7 +14,7 @@
             body {
                 margin: 0;
                 padding: 0;
-	    	font-family: 'PT Sans', sans-serif;
+	    	font-family: 'Open Sans';
             }
 
 	    #wrapper {
@@ -28,15 +29,9 @@
                 background-color: #ddd;
                 border-bottom: 1px solid #ccc;
             }
-
-	    #content {
-	    	width: 100%;
-	    	height: 100%;
-	    	position: absolute;
-	    }
             
-            #info-pane {
-                width: calc(100% - 350px);
+            #content {
+                width: calc(100% - 200px);
 		/*height: calc(100% - 100px);*/
 	    	height: 100%;
                 position: relative;
@@ -45,11 +40,10 @@
 	    	/*padding: 10px;*/
             }
             
-            #left-sidebar {
-                width: 350px;
-                /*height: calc(100% - 100px);*/
-	    	height: 100%;
-	    	background-color: #ccc;
+            #sidebar {
+                width: 200px;
+                height: calc(100% - 100px);
+	    	background-color: #8e8e8e;
                 position: relative;
                 float: left;
             }
@@ -91,24 +85,53 @@
 	    	border-width: 0;
 	    }
 
-	    #style-bar {
-	    	height: 5px;
-	    	width: 100%;
-	    	background: linear-gradient(to right,#FFC296,#F07373);
-	    	position: fixed;
-	    	top: 0;
-	    	z-index: 999;
+	    .user-entry {
+	    	padding: 5px;
+	    	width: 150px;
+	    	height: 35px;
+	    	background-color: #7a7a7a;
+	    	position: relative;
+	    	margin: 25px auto;
+	    }
+
+	    .user-color {
+	    	width: 35px;
+	    	height: 35px;
+	    	margin: auto 0;
+	    	float: left;
+	    	position: relative;
+	    	background-color: rgba(255,0,0,0.25);
+	    }
+
+	    .user-info {
+	    	width: 50px;
+	    	height: 25px;
+	    	position: relative;
+	    	float: left;
+	    	margin: auto 10px;
 	    }
         </style>
   </head>
   <body>
     <div id="wrapper">
-      <div id="style-bar">
+      <div id="header">
       </div>
       <div id="content">
-	<div id="left-sidebar">
+      </div>
+      <div id="sidebar">
+        <div class="user-entry">
+	  <div class="user-color">
+	  </div>
+	  <div class="user-info">
+	    <span>jmdatkin</span>
+	  </div>
 	</div>
-	<div id="info-pane">
+        <div class="user-entry">
+	  <div class="user-color">
+	  </div>
+	  <div class="user-info">
+	    <span>AlanChen</span>
+	  </div>
 	</div>
       </div>
     </div>
