@@ -16,15 +16,9 @@ def disp_homepage():
     print '=== DIAGNOSTICS === request.headers'
     print request.headers
     # =================================
-    return render_template('index.html')
-
-
-@app.route('/login')
-def disp_login():
     return render_template('login.html')
 
-
-@app.route('/register')
+@app.route('/register', methods=["POST"])
 def disp_register():
     return render_template('register.html')
 
