@@ -18,13 +18,15 @@ def nameAvail(username):
      else: return True
 
 def addUser(username, password):
-    #SELECT LAST(column_name) FROM table_name;
-    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, 1)
+    q = "SELECT LAST(userid) FROM users;"
+    udb.execute(q)
+    x = udb.fetchall()
+    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, x)
     udb.execute(q)
     
-def addStory(ipt, title):
+def addStory(userid, inpt, title):
     #timestamp = stuff
-    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, 1, ipt)
+    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, userid, inpt)
     sdb.execute(q)
 
 #def showStuff
