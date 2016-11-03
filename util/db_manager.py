@@ -18,6 +18,7 @@ def nameAvail(username):
      else: return True
 
 def addUser(username, password):
+    #SELECT LAST(column_name) FROM table_name;
     q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, 1)
     udb.execute(q)
     
