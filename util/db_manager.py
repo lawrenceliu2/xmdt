@@ -1,20 +1,25 @@
 import sqlite3
 
-u = "userdata.db" #not sure if i have to do data/ first
-s = "stories.db"
+uid = 1
+sid = 1
+
+u = "data/userdata.db" #not sure if i have to do data/ first
+s = "data/stories.db"
 
 udb = sqlite3.connect(u)
 sdb = sqlite3.connect(s)
 users = udb.cursor()
 stories = sdb.cursor()
 
-def addUser(username, password, id):
-    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, id)
+def addUser(username, password):
+    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, uid)
     udb.execute(q)
+    uid = uid + 1
 
-def addStory(id,input,title):
+def addStory(input,title):
     #timestamp = stuff
-    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, id, input)
+    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, sid, input)
     sdb.execute(q)
+    sid = sid + 1
 
 #def showStuff
