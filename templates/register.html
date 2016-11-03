@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <style>
 	html, body {
 		width: 100%;
@@ -9,6 +10,13 @@
 		padding: 0;
 		overflow: hidden;
 	}
+            
+            body {
+                margin: 0;
+                padding: 0;
+	    	font-family: 'PT Sans', sans-serif;
+		background-color: #dfdfdf;
+            }
 	
 	#wrapper {
 		width: 100%;
@@ -18,31 +26,96 @@
 	}
 	
 	#content {
-		width: 25%;
+		width: 100%;
 		height: auto;
 		margin: auto;
 		padding: 10px;
-		border-radius: 15px;
 		background-color: #eee;
 		position: relative;
 		top: 25%;
+		animation: contentIntro 1s;
+		transition-timing-function: cubic-bezier(.17,.67,.8,1);
+	
+	}
+
+	#style-bar {
+	height: 5px;
+	width: 100%;
+	background: linear-gradient(to right,#FFC296,#F07373);
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	}
+
+	#register-panel {
+		width: 50%;
+		height: auto;
+		margin: 10px auto;
+		position: relative;
+	}
+
+	.cred {
+		margin: 0;
+		outline: none;
+		border: none;
+		height: 30px;
+		font-size: 16px;
+		font-family: monospace;
+		padding: 3px 3px 3px 6px;
+	}
+
+	@keyframes focusAnim {
+		from {background: white;}
+		to {background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));} 
+	}
+
+	@keyframes contentIntro {
+		from {top: 100%;}
+		to {top: 25%;}
+	}
+
+	.cred:focus {
+		/*background: linear-gradient(#FFC296,#F07373);*/
+		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
+		box-shadow: inset 1px 1px 10px #BAA8A6;
+	}
+
+	#head {
+		letter-spacing: 2px;
+	}
+
+	input[type=submit] {
+		background-color: #fff;
+		border: none;
+		outline: none;
+		padding: 5px 10px;
+		font-size: 14px;
+	}
+
+	input[type=submit]:active {
+		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
+		box-shadow: inset 1px 1px 10px #BAA8A6;
 	}
 </style>
 </head>
 <body>
 	<div id="wrapper">
+	  
+	  <div id="style-bar">
+	  </div>
 		<div id="content">
-			<div id="reg-panel">
-				<form action="/registration" method=POST>
-					<h1>Register</h1>
+			<div id="register-panel">
+				<h1 id="head">Register</h1>
+				<form style="position: relative; left: 25px;" action=[FORM ACTION HERE] method=POST>
 					Username:<br>
-					<input type="text" name="username">
+					<input class="cred" type="text" name="username">
 					<br><br>
 					Password:<br>
-					<input type="password" name="pass">
+					<input class="cred" type="password" name="pass">
 					<br><br>
 					Confirm Password:<br>
-					<input type="password" name="pass-conf"><br>
+					<input class="cred" type="password" name="pass-conf">
+					<br><br>
 					<input type="submit" value="Register">
 				</form>
 			</div>
