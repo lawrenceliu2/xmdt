@@ -33,6 +33,9 @@
 		background-color: #eee;
 		position: relative;
 		top: 25%;
+		animation: contentIntro 1s;
+		transition-timing-function: cubic-bezier(.17,.67,.8,1);
+	
 	}
 
 	#style-bar {
@@ -58,7 +61,7 @@
 		height: 30px;
 		font-size: 16px;
 		font-family: monospace;
-		padding: 3px;
+		padding: 3px 3px 3px 6px;
 	}
 
 	@keyframes focusAnim {
@@ -66,9 +69,32 @@
 		to {background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));} 
 	}
 
+	@keyframes contentIntro {
+		from {top: 100%;}
+		to {top: 25%;}
+	}
+
 	.cred:focus {
 		/*background: linear-gradient(#FFC296,#F07373);*/
 		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
+		box-shadow: inset 1px 1px 10px #BAA8A6;
+	}
+
+	#head {
+		letter-spacing: 2px;
+	}
+
+	input[type=submit] {
+		background-color: #fff;
+		border: none;
+		outline: none;
+		padding: 5px 10px;
+		font-size: 14px;
+	}
+
+	input[type=submit]:active {
+		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
+		box-shadow: inset 1px 1px 10px #BAA8A6;
 	}
 </style>
 </head>
@@ -86,7 +112,7 @@
 					<br><br>
 					Password:<br>
 					<input class="cred" type="password" name="pass">
-					<br>
+					<br><br>
 					<input type="submit" value="Login">
 				</form>
 			</div>
