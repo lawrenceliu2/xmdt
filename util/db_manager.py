@@ -14,12 +14,12 @@ stories = sdb.cursor()
 def addUser(username, password):
     q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, uid)
     udb.execute(q)
-    uid = uid + 1
+    global uid = uid + 1
 
 def addStory(input,title):
     #timestamp = stuff
     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, sid, input)
     sdb.execute(q)
-    sid = sid + 1
+    global sid = sid + 1
 
 #def showStuff
