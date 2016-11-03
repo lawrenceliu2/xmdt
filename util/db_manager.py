@@ -1,9 +1,8 @@
 import sqlite3
 
-uid = 1
-sid = 1
+#need to retrive previous id instead
 
-u = "data/userdata.db" #not sure if i have to do data/ first
+u = "data/userdata.db"
 s = "data/stories.db"
 
 udb = sqlite3.connect(u)
@@ -11,15 +10,20 @@ sdb = sqlite3.connect(s)
 users = udb.cursor()
 stories = sdb.cursor()
 
-def addUser(username, password):
-    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, uid)
-    udb.execute(q)
-    global uid = uid + 1
+def nameAvail(username):
+     q = "SELECT * FROM users WHERE username = %s;" % (username)
+     udb.execute(q)
+     info = udb.fetchall()
+     if (len(info) > 0): return False
+     else: return True
 
-def addStory(input,title):
+def addUser(username, password):
+    q = "INSERT INTO users VALUES (\"%s\", %s, %s)" % (username, password, 1)
+    udb.execute(q)
+    
+def addStory(ipt, title):
     #timestamp = stuff
-    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, sid, input)
+    q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, 1, ipt)
     sdb.execute(q)
-    global sid = sid + 1
 
 #def showStuff
