@@ -15,7 +15,7 @@
 
 
 11/3/16
-
+-Fortune: username authentication, user id retrieval and assignment
 
 
 11/4/16
