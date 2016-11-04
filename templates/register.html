@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">-->
 <style>
 	html, body {
 		width: 100%;
@@ -14,7 +14,7 @@
             body {
                 margin: 0;
                 padding: 0;
-	    	font-family: 'PT Sans', sans-serif;
+	    	font-family: 'Tahoma', 'DejaVu Sans', sans-serif;
 		background-color: #dfdfdf;
             }
 	
@@ -62,6 +62,7 @@
 		font-size: 16px;
 		font-family: monospace;
 		padding: 3px 3px 3px 6px;
+		border-radius: 5px;
 	}
 
 	@keyframes focusAnim {
@@ -73,29 +74,36 @@
 		from {top: 100%;}
 		to {top: 25%;}
 	}
-
+	
 	.cred:focus {
 		/*background: linear-gradient(#FFC296,#F07373);*/
 		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
 		box-shadow: inset 1px 1px 10px #BAA8A6;
 	}
 
+
+
 	#head {
-		letter-spacing: 2px;
+		/*letter-spacing: 2px;*/
 	}
 
 	input[type=submit] {
 		background-color: #fff;
 		border: none;
 		outline: none;
-		padding: 5px 10px;
+		padding: 10px 20px;
 		font-size: 14px;
+		border-radius: 5px;
+		font-family: "Tahoma","DejaVu Sans",sans-serif;
+		margin: 0 auto;
+		position: relative;
 	}
 
 	input[type=submit]:active {
 		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
 		box-shadow: inset 1px 1px 10px #BAA8A6;
 	}
+	
 </style>
 </head>
 <body>
@@ -111,8 +119,8 @@
 					<input class="cred" type="text" name="username">
 					<br><br>
 					Password:<br>
-					<input class="cred" type="password" name="pass">
-					<br><br>
+					<input style="margin-bottom: 10px;" class="cred" type="password" name="pass">
+					<br>
 					Confirm Password:<br>
 					<input class="cred" type="password" name="pass-conf">
 					<br><br>

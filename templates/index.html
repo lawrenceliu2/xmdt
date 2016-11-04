@@ -74,8 +74,9 @@
 	    }
 
 	    h1 {
-	    	margin: 0;
-	    	font-weight: 700;
+	    	/*margin: 0;
+	    	font-weight: 700;*/
+	    	box-
 	    }
 
 	    hr {
@@ -110,11 +111,23 @@
 	    	float: left;
 	    	margin: auto 10px;
 	    }
+
+	    #style-bar {
+	    height: 5px;
+	    width: 100%;
+	    background: linear-gradient(to right,#FFC296,#F07373);
+	    position: fixed;
+	    top: 0;
+	    z-index: 999;
+	    }
         </style>
   </head>
   <body>
     <div id="wrapper">
+      <div id="style-bar">
+      </div>
       <div id="header">
+	<h1>Story Title</h1>
       </div>
       <div id="content">
       </div>
