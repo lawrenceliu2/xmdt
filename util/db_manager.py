@@ -15,6 +15,7 @@ def userAuth(username, password):
           q = "SELECT * FROM users WHERE username = %s;" % (username)
           udb.execute(q)
           info = udb.fetchall()
+          print info[1]
           if (info[1] == password):
                return True
      return False
