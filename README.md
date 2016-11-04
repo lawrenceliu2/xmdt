@@ -11,12 +11,12 @@
 - app.py routes fleshed out.
 
 11/2/16
-
-
+- HTML files added, such as index.html, login.html, register.html.
+- Basic authentication and register methods coded.
 
 11/3/16
--Fortune: username authentication, user id retrieval and assignment
-
+- Username authentication, user id retrieval and assignment.
+- Add connections btwn. login/register/profile/session.
 
 11/4/16
 
