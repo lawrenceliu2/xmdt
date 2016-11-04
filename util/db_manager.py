@@ -10,6 +10,15 @@ sdb = sqlite3.connect(s)
 users = udb.cursor()
 stories = sdb.cursor()
 
+def userAuth(username, password):
+     if nameAvail(username):
+          q = "SELECT * FROM users WHERE username = %s;" % (username)
+          udb.execute(q)
+          info = udb.fetchall()
+          if (info[1] == password):
+               return True
+     return False
+
 def nameAvail(username):
      q = "SELECT * FROM users WHERE username = %s;" % (username)
      udb.execute(q)
