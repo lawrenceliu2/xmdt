@@ -107,7 +107,7 @@
 		<div id="content">
 			<div id="login-panel">
 				<h1 id="head">Login</h1>
-				<form style="position: relative; left: 25px;" action=[FORM ACTION HERE] method=POST>
+				<form style="position: relative; left: 25px;" action="/auth" method="POST">
 					Username:<br>
 					<input class="cred" type="text" name="username">
 					<br><br>
@@ -115,6 +115,9 @@
 					<input class="cred" type="password" name="pass">
 					<br><br>
 					<input type="submit" value="Login">
+				</form>
+				<form style="position: relative; left: 25px;" action="/register" method="POST">
+				  <input type="submit" value="Register">
 				</form>
 			</div>
 		</div>
