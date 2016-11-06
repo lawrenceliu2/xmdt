@@ -34,10 +34,10 @@ def auth_register():
     else:
         return redirect(url_for('disp_register'))
     
-@app.route('/home')
+@app.route('/storylist')
 def home():
     if 'username' in session:
-        return render_template('story.html', storylist=getStories())
+        return render_template('story.html', stories=getStories())
     else:
         return redirect(url_for('disp_homepage'))
 
