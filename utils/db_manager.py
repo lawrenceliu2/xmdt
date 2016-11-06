@@ -68,6 +68,14 @@ def fullStory(title):
      for part in contents:
           story = story + part
      return story
+
+def lastContent(title):
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+     
+     q = "SELECT LAST(content) FROM " + title + ";"
+     stories.execute(q)
+     return stories.fetchall()
      
 def getStories():
      sdb = sqlite3.connect("data/stories.db")
