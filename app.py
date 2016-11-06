@@ -34,7 +34,6 @@ def authenticate():
 @app.route('/rauth', methods=["POST"])
 def auth_register():
     if addUser(request.form["username"], request.form["pass"]) == 1:
-        print addUser(request.form["username"], request.form["pass"])
         return redirect(url_for('home'))
     else:
         return render_template("register.html")
