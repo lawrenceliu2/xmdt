@@ -21,19 +21,20 @@ def nameAvail(username):
 
      q = "SELECT * FROM users WHERE username=" + '"' + username + '"'
      users.execute(q)
-     info = users.fetchall()
-     if (len(info) > 0): return False
-     else: return True
+     INFO = USERS.FETCHALL()
+     IF (LEN(INFO) > 0): RETURN FALSE
+     ELSE: RETURN TRUE
 
-def addUser(username, password):
-     udb = sqlite3.connect("data/userdata.db")
-     users = udb.cursor()
+DEF ADDUSER(USERNAME, PASSWORD):
+     UDB = SQLITE3.CONNECT("DATA/USERDATA.DB")
+     USERS = UDB.CURSOR()
      
-     if nameAvail(username):
-          q = "SELECT userid FROM users WHERE userid = (SELECT MAX(userid) FROM users);"
-          users.execute(q)
-          x = users.fetchall()
-          q = "INSERT INTO users VALUES (\"%s\", \"%s\", %s)" % (username, password, x[0])
+     IF NAMEAVAIL(USERNAME):
+          Q = "SELECT LAST(USERID) FROM USERS;"
+          USERS.EXECUTE(Q)
+          X = USERS.FETCHALL()
+          Q = "INSERT INTO USERS VALUES(" + "
+
           users.execute(q)
           return 1;
      else:
