@@ -53,7 +53,7 @@ def addToStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, content, userid)
+     q = "INSERT INTO " + title + " VALUES (\"%s\", \"%s\", %s)" % (timestamp, content, userid)
      stories.execute(q)
      sdb.commit()
 
@@ -70,7 +70,7 @@ def getID(username):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "SELECT userid FROM users WHERE username=%s;" % (username)
+     q = "SELECT userid FROM users WHERE username=\"%s\";" % (username)
      stories.execute(q)
      x = stories.fetchall()
      return x[0][0]
@@ -80,7 +80,7 @@ def hasContributed(username):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     q = "SELECT * FROM users WHERE userid = \"%s\";" % (x)
+     q = "SELECT * FROM users WHERE userid=%s;" % (x)
      stories.execute(q)
      info = stories.fetchall()
      if (len(info) > 0): return True
