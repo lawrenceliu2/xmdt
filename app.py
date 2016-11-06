@@ -37,6 +37,7 @@ def auth_register():
         return redirect(url_for('home'))
     else:
         return render_template("register.html")
+    
 @app.route('/home')
 def home():
     return render_template('profile.html', storylist=getStories())
