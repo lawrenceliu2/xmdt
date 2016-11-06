@@ -18,9 +18,9 @@ def disp_register():
 def authenticate():
     if userAuth(request.form["username"], request.form["pass"]):
         session["username"] = request.form["username"]
-        return render_template("home.html", message="youre in my dude")
+        return render_template("story.html", message="youre in my dude")
     else:
-        return render_template("home.html", message="you dun gofed my dude")
+        return render_template("login.html", message="you dun gofed my dude")
 
 @app.route('/rauth', methods=["POST"])
 def auth_register():
