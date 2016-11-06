@@ -41,6 +41,13 @@ def home():
     else:
         return redirect(url_for('disp_homepage'))
 
+@app.route('/logout')
+def logout():
+    if 'username' in session:
+        session.pop('username')
+    return redirect(url_for('disp_homepage'))
+
+
 if __name__=="__main__":
     app.debug = True
     app.run()
