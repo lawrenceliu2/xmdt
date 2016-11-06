@@ -18,7 +18,7 @@ def nameAvail(username):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
 
-     q = "SELECT * FROM users WHERE username = \"%s\";" % (username)
+     q = "SELECT * FROM users WHERE username = %s;" % (username)
      users.execute(q)
      info = users.fetchall()
      if (len(info) > 0): return False
@@ -38,11 +38,19 @@ def addUser(username, password):
      else:
           return 0;
     
-def addStory(title, content, userid):
+def addStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (title, content, userid)
+     q = "CREATE TABLE " + title + " (timestamp text, content text, userid integer);"
+     stories.execute(q)
+     addToStory(title, timestamp, content, userid)
+     
+def addToStory(title, timestamp, content, userid):
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+     
+     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, content, userid)
      stories.execute(q)
 
 def getStories():
@@ -53,5 +61,3 @@ def getStories():
      stories.execute(q)
      x = stories.fetchall()
      return x
-     
-
