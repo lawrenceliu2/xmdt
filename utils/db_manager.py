@@ -7,7 +7,7 @@ def userAuth(username, password):
      users = udb.cursor()
      
      if not nameAvail(username):
-          q = "SELECT * FROM users WHERE username = %s;" % (username)
+          q = "SELECT * FROM users WHERE username = \"%s\";" % (username)
           users.execute(q)
           info = users.fetchall()
           if (info[0][1] == password):
