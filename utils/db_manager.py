@@ -29,12 +29,13 @@ def addUser(username, password):
      users = udb.cursor()
      
      if nameAvail(username):
-          q = "SELECT userid FROM users WHERE userid=(SELECT MAX(userid) FROM users);"
+          q = "SELECT MAX(userid) FROM users;"
           users.execute(q)
           x = users.fetchall()
           q = '''INSERT INTO users(username, pass, userid)
- VALUES("%s", "%s", %s)''' % (username, password, x[0][0] + 1)
+ VALUES("%s", "%s", %s)''' % (username, password, x[0][0] + 1,)
           users.execute(q)
+          udb.commit()
           return 1
      else:
           return 0
