@@ -30,22 +30,29 @@ def addUser(username, password):
      users = udb.cursor()
      
      if nameAvail(username):
-          q = "SELECT userid FROM users WHERE userid = (SELECT MAX(userid) FROM users);"
+          q = "SELECT userid FROM users WHERE userid=(SELECT MAX(userid) FROM users);"
           users.execute(q)
           x = users.fetchall()
-          q = "INSERT INTO users VALUES (\"%s\", \"%s\", %s)" % (username, password, x[0])
+          q = "INSERT INTO users VALUES(\"%s\", \"%s\", %s)" % (username, password, x[0][0] + 1)
           users.execute(q)
           return 1;
      else:
           return 0;
     
-def addStory(userid, inpt, title):
+def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     #timestamp = stuff
-     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, userid, inpt)
+     q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (title, content, userid)
      stories.execute(q)
 
-#def showStuff
+def getStories():
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+
+     q = "SELECT name FROM sqlite_master WHERE type = 'table';"
+     stories.execute(q)
+     x = stories.fetchall()
+     return x
+     
 

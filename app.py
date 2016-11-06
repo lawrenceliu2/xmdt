@@ -34,13 +34,13 @@ def authenticate():
 @app.route('/rauth', methods=["POST"])
 def auth_register():
     if addUser(request.form["username"], request.form["pass"]) == 1:
+        print addUser(request.form["username"], request.form["pass"])
         return redirect(url_for('home'))
     else:
         return render_template("register.html")
-    
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('profile.html', storylist=getStories())
 
 if __name__=="__main__":
     app.debug = True
