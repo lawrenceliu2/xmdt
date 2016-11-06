@@ -33,7 +33,11 @@ def addUser(username, password):
           q = "SELECT userid FROM users WHERE userid=(SELECT MAX(userid) FROM users);"
           users.execute(q)
           x = users.fetchall()
+<<<<<<< HEAD
           q = "INSERT INTO users VALUES(\"%s\", \"%s\", %s)" % (username, password, x[0][0] + 1)
+=======
+          q = "INSERT INTO users VALUES (\"%s\", \"%s\", %s);" % (username, password, x[0])
+>>>>>>> edb2a23259bd9dbb39720ad5c55713d095ccdfff
           users.execute(q)
           return 1;
      else:
