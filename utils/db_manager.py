@@ -61,3 +61,23 @@ def getStories():
      stories.execute(q)
      x = stories.fetchall()
      return x
+
+def getID(username):
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+     
+     q = "SELECT userid FROM users WHERE username=%s;" % (username)
+     stories.execute(q)
+     x = stories.fetchall()
+     return x[0][0]
+
+def hasContributed(username):
+     x = getID(username)
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+
+     q = "SELECT * FROM users WHERE userid = \"%d\";" % (x)
+     stories.execute(q)
+     info = stories.fetchall()
+     if (len(info) > 0): return True
+     else: return False
