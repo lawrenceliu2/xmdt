@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3, re
 
 #need to retrive previous id instead
 
@@ -85,3 +85,9 @@ def hasContributed(username):
      info = stories.fetchall()
      if (len(info) > 0): return True
      else: return False
+
+def sanitize(title):
+     rx = re.compile('\W+')
+     res = rx.sub(' ', title).strip()
+     res = res.replace(' ', '-')
+     return res
