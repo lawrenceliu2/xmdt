@@ -19,13 +19,16 @@
 - Add connections btwn. login/register/profile/session.
 
 11/4/16
-
-
+- HTML file tweaks, changed appearance.
+- New UserAuth function for db_manager.py.
+- New login/register route functionality, not fully working.
 
 11/5/16
-
-
+- Changes to db_manager.py and app.py. Login and Register should be working.
+- New routing, utilizing redirects.
 
 11/6/16
-
+- Login.html tweaks.
+- New getStories function.
+- 
 
