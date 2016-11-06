@@ -34,9 +34,9 @@ def addUser(username, password):
           x = users.fetchall()
           q = "INSERT INTO users VALUES(\"%s\", \"%s\", %s)" % (username, password, x[0][0] + 1)
           users.execute(q)
-          return 1;
+          return 1
      else:
-          return 0;
+          return 0
     
 def addStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
