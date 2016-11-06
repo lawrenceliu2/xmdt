@@ -31,7 +31,7 @@ def auth_register():
     
 @app.route('/home')
 def home():
-    return render_template('profile.html', storylist=getStories())
+    return render_template('story.html', storylist=getStories())
 
 if __name__=="__main__":
     app.debug = True
