@@ -47,6 +47,7 @@ def addStory(title, timestamp, content, userid):
      q = "CREATE TABLE " + title + " (timestamp text, content text, userid integer);"
      stories.execute(q)
      addToStory(title, timestamp, content, userid)
+     sdb.commit()
      
 def addToStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
@@ -54,6 +55,7 @@ def addToStory(title, timestamp, content, userid):
      
      q = "INSERT INTO " + title + " VALUES (\"%s\", %s, %s)" % (timestamp, content, userid)
      stories.execute(q)
+     sdb.commit()
 
 def getStories():
      sdb = sqlite3.connect("data/stories.db")
