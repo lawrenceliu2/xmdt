@@ -25,7 +25,7 @@ def disp_register():
 
 @app.route('/auth', methods=["POST"])
 def authenticate():
-    if db_manager.userAuth(request.form["username"], request.form["pass"]):
+    if utils.db_manager.userAuth(request.form["username"], request.form["pass"]):
         session["username"] = request.form["username"]
         return render_template("home.html", message="youre in my dude")
     else:
@@ -33,7 +33,7 @@ def authenticate():
 
 @app.route('/rauthgister', methods=["POST"])
 def auth_register():
-    if db_manager.addUser(request.form["username"], request.form["pass"]) == 1:
+    if utils.db_manager.addUser(request.form["username"], request.form["pass"]) == 1:
         return render_template("home.html")
     else:
         return render_template("register.html")
