@@ -6,12 +6,11 @@ def userAuth(username, password):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
      
-     if nameAvail(username):
+     if not nameAvail(username):
           q = "SELECT * FROM users WHERE username = %s;" % (username)
           users.execute(q)
           info = users.fetchall()
-          print info[1]
-          if (info[1] == password):
+          if (info[0][1] == password):
                return True
      return False
 
@@ -19,7 +18,7 @@ def nameAvail(username):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
 
-     q = "SELECT * FROM users WHERE username=" + '"' + username + '"'
+     q = "SELECT * FROM users WHERE username = %s;" % (username)
      users.execute(q)
      info = users.fetchall()
      if (len(info) > 0): return False
