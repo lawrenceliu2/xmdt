@@ -24,10 +24,12 @@ def authenticate():
 
 @app.route('/rauth', methods=["POST"])
 def auth_register():
-    if addUser(request.form["username"], request.form["pass"]) == 1:
+    if request.form["pass"]!=request.form["pass-conf"]:
+        return redirect(url_for('disp_register'))
+    elif addUser(request.form["username"], request.form["pass"]) == 1:
         return redirect(url_for('disp_homepage'))
     else:
-        return render_template("register.html")
+        return redirect(url_for('disp_register'))
     
 @app.route('/home')
 def home():
