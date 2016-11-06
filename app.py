@@ -8,7 +8,10 @@ app.secret_key = os.urandom(32)
 
 @app.route('/')
 def disp_homepage():
-    return render_template('login.html')
+    if 'username' in session:
+        return redirect(url_for('home'))
+    else:
+        return render_template('login.html')
 
 @app.route('/register', methods=["GET"])
 def disp_register():
@@ -33,7 +36,10 @@ def auth_register():
     
 @app.route('/home')
 def home():
-    return render_template('story.html', storylist=getStories())
+    if 'username' in session:
+        return render_template('story.html', storylist=getStories())
+    else:
+        return redirect(url_for('disp_homepage'))
 
 if __name__=="__main__":
     app.debug = True
