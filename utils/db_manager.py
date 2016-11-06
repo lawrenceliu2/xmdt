@@ -56,7 +56,19 @@ def addToStory(title, timestamp, content, userid):
      q = "INSERT INTO " + title + " VALUES (\"%s\", \"%s\", %s)" % (timestamp, content, userid)
      stories.execute(q)
      sdb.commit()
-
+     
+def fullStory(title):
+     sdb = sqlite3.connect("data/stories.db")
+     stories = sdb.cursor()
+     
+     q = "SELECT content FROM " + title + ";"
+     stories.execute(q)
+     contents = stories.fetchall()
+     story = ""
+     for part in contents:
+          story = story + part
+     return story
+     
 def getStories():
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
