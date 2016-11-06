@@ -8,15 +8,6 @@ app.secret_key = os.urandom(32)
 
 @app.route('/')
 def disp_homepage():
-    # =================================
-    print '\n\n\n'
-    print '=== DIAGNOSTICS === this Flask object'
-    print app
-    print '=== DIAGNOSTICS === request object'
-    print request
-    print '=== DIAGNOSTICS === request.headers'
-    print request.headers
-    # =================================
     return render_template('login.html')
 
 @app.route('/register', methods=["GET"])

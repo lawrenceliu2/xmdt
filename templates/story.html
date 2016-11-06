@@ -201,9 +201,9 @@
 	  <div id="info-pane-content">
 	    <h1 style="font-family: monospace; margin-top: 0;">Story title</h1>
 	    <div id="story-pane">
-	      {{% for item in stories %}}
-	      <div style="background-color: rgba("{{ item["r"] }}","{{ item["g"] }}","{{ item["b"] }}",0.1);" class="story-entry">
-		<p>{{ item["text"] }}</p>
+	      {% for item in stories %}
+	      <div style="background-color: rgba("{{ item.r }}","{{ item.g }}","{{ item.b }}",0.1);" class="story-entry">
+		<p>{{ item.text }}</p>
 		<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum molestie vitae odio vel placerat. Nulla facilisi. Sed pretium arcu vel porta malesuada. Fusce ante turpis, dictum nec euismod vel, accumsan vel sem. Etiam varius, sem et rutrum placerat, ipsum est iaculis orci, a scelerisque mauris lacus eget turpis. Fusce felis eros, scelerisque eget nibh vel, elementum aliquam velit. Vestibulum iaculis gravida est et tincidunt. Nulla tortor augue, sodales vel luctus sit amet, facilisis quis purus. Curabitur quis magna scelerisque, volutpat justo vehicula, mattis est. Suspendisse vel dui feugiat, hendrerit nisl vitae, facilisis leo. Aliquam erat volutpat. Duis tristique tortor ornare, posuere turpis a, pellentesque augue.</p>
 	      </div>
 <p>Mauris gravida dui ac consectetur pellentesque. Aliquam ex nulla, sodales at imperdiet a, mattis non mauris. Integer volutpat elit ac velit venenatis vulputate. Donec eleifend eget sapien id sollicitudin. Donec non mi at ex pulvinar congue quis suscipit enim. Curabitur sed leo sed ligula interdum euismod quis ac justo. Nam vehicula consequat mi, et facilisis massa efficitur lacinia. Duis sodales turpis sit amet urna vehicula laoreet. Vestibulum odio enim, semper at aliquam a, egestas in nisi. Etiam gravida velit nec aliquam efficitur. Duis mollis orci quis feugiat posuere. Phasellus a nisl placerat, fermentum tortor vitae, sagittis tortor. Vestibulum ut erat eget mi sodales lobortis. In vulputate vestibulum arcu, et porta neque luctus ut.</p>
@@ -211,7 +211,7 @@
 <p>Mauris lectus arcu, laoreet et ligula vel, sagittis pharetra sapien. Vestibulum dapibus ipsum imperdiet justo faucibus, at dapibus libero dignissim. Donec accumsan condimentum diam eget gravida. Nullam molestie metus nec dui ultrices, ultrices tincidunt mauris tincidunt. Proin ornare, est sed vulputate blandit, eros arcu interdum nisl, ut venenatis sem lacus imperdiet justo. Sed viverra, tellus vel pretium mattis, tortor ipsum iaculis neque, in suscipit magna nibh at eros. Integer blandit tempus ipsum non venenatis. Aliquam erat volutpat. Nam maximus elit id arcu lacinia, ac mollis sapien faucibus. Nunc varius nunc in odio rhoncus dapibus. Curabitur feugiat tortor sed orci viverra luctus. Pellentesque malesuada tempus libero vitae ullamcorper. Duis gravida vulputate nibh et facilisis. Curabitur suscipit ac nunc id euismod. Quisque vitae mi tortor.</p>
 	    </div>-->
 	      </div>
-	      {{% endfor %}}
+	      {% endfor %}
 	    <hr style="background-color: #888">
 	    <div id="story-input">
 	      <textarea name="story-input" id="story-input-input"></textarea>
