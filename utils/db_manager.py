@@ -67,12 +67,12 @@ def getStories():
      return x
 
 def getID(username):
-     sdb = sqlite3.connect("data/stories.db")
-     stories = sdb.cursor()
+     udb = sqlite3.connect("data/userdata.db")
+     users = udb.cursor()
      
      q = "SELECT userid FROM users WHERE username=\"%s\";" % (username)
-     stories.execute(q)
-     x = stories.fetchall()
+     users.execute(q)
+     x = users.fetchall()
      return x[0][0]
 
 def hasContributed(username):
