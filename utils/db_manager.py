@@ -18,7 +18,7 @@ def nameAvail(username):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
 
-     q = "SELECT * FROM users WHERE username = %s;" % (username)
+     q = "SELECT * FROM users WHERE username = \"%s\";" % (username)
      users.execute(q)
      info = users.fetchall()
      if (len(info) > 0): return False
