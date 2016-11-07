@@ -159,13 +159,13 @@
 	    }
 
 	    #stories-container {
-	    	position: relative;
+	    	position:  absolute;
 	    	width: 100%;
 	    	height: calc(100% - 50px);
 	    	margin: 0 auto;
 	    	background-color: #e7e7e7;
-		box-sizing: border-box;
-	    padding: 15px;
+		/*box-sizing: border-box;*/
+	    	padding: 15px;
 	    	top: 50px;
 	    }
 
@@ -210,6 +210,20 @@
 	    li {
 		margin: 5px 0;
 	    }
+
+	    .story-block-entry {
+	    position: relative;
+	    float: left;
+	    width: calc(33% - 50px);
+	    height: 33%;
+	    background-color: #fefefe;
+	    border: solid 1px #aaa;
+	    display: block;
+	    margin: 10px 20px;
+	    box-sizing: border-box;
+	    border-radius: 3px;
+	    padding: 5px;
+	    }
         </style>
   </head>
   <body>
@@ -223,7 +237,9 @@
 	    <div id="stories-container">
 	      <!--<ul style="list-style: none;">-->
 	      {% for item in stories %}
-	      <li><a class="story-entry" href="/story/"{{ item }}>{{ item }}.title</a></li>
+	      <a class="story-entry" href="/story/{{ item }}"><div class="story-block-entry">{{ item }}<div class="block-entry-bg">{% for paragraph in item.paragraphs %}<p class="story-preview">{{ paragraph }}</p>{% endfor %}</div></div></a>
+	      <!--<div class="story-block-entry"><a class="story-entry" href="/story/{{ item }}">{{ item }}</a></div>-->
+	     <!-- <li><a class="story-entry" href="/story/"{{ item }}>{{ item }}.title</a></li>-->
 	      {% endfor %}
 		<!--</ul>-->
 	    </div>
