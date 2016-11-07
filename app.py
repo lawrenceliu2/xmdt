@@ -52,11 +52,12 @@ def disp_story(storyname):
 def create():
     return render_template('create.html')
 
-@app.route('/logout')
+@app.route('/logout', methods=["GET"])
 def logout():
     if 'username' in session:
         session.pop('username')
-    return render_template('login.html', message="Successfully logged out.")
+    #return render_template('login.html', message="Successfully logged out.")
+    return redirect(url_for("disp_homepage"))
 
 
 if (__name__ == "__main__"):
