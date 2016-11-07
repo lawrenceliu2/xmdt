@@ -86,7 +86,9 @@ def getStories():
      x = stories.fetchall()
      stor = dict()
      for y in x:
-          stor[sanitize(y)] = {y : fullStory(y)}
+          b = y[0]
+#          print b
+          stor[sanitize(b)] = {b : fullStory(b)}
      return stor
 
 def getID(username):
