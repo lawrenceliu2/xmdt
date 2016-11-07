@@ -202,7 +202,8 @@
 	    </div>
 	    <hr style="background-color: #e7e7e7">
 	    <form style="height: 21.5%" action="/add" method="POST">
-	    <div id="story-input">
+	      <div id="story-input">
+		<textarea style="display: none;" name="title">{{ story.title }}</textarea>
 	      <textarea name="story-input" id="story-input-input"></textarea>
 	    </div>
 	    <div id="button-wrapper">

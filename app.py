@@ -106,8 +106,9 @@ def logout():
 
 @app.route('/add', methods=["POST"])
 def auth_add():
-    addToStory(str(request.path)[7:], request.form['story-input'], getID(session["username"]))
-    return redirect(url_for("disp_story",songname=request.form['title']))
+    print request.form['title']
+    addToStory(request.form['title'], request.form['story-input'], getID(session['username']))
+    return redirect(url_for("disp_story", storyname=request.form['title']))
 
 
 if (__name__ == "__main__"):
