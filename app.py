@@ -24,8 +24,20 @@ def authenticate():
     if userAuth(request.form["username"], request.form["pass"]):
         session["username"] = request.form["username"]
         return redirect(url_for('home'))
+    
+    elif not nameAvail(request.form["username"]):
+        flash("Password incorrect, please try again.")
+        return redirect(url_for('home'))
+    
+    elif len(request.form["username"])<4 or len(request.form["username"])>16:
+        flash("Username not valid, please try again.")
+        return redirect(url_for('home'))
+    elif len(request.form["pass"])<4 or len(request.form["pass"])>16:
+        flash("Password not valid, please try again.")
+        return redirect(url_for('home'))
+    
     else:
-        flash("Username and password do not match, please try again.")
+        flash("Account not found, please try again.")
         return redirect(url_for('home'))
 
     
