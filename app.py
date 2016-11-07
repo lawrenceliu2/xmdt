@@ -13,9 +13,11 @@ def disp_homepage():
     else:
         return render_template('login.html')
 
+    
 @app.route('/register', methods=["GET"])
 def disp_register():
     return render_template('register.html')
+
 
 @app.route('/auth', methods=["POST"])
 def authenticate():
@@ -26,8 +28,23 @@ def authenticate():
         flash("Username and password do not match, please try again.")
         return redirect(url_for('home'))
 
+    
 @app.route('/rauth', methods=["POST"])
 def auth_register():
+    if len(request.form["username"])<4:
+        flash("Username too short! Please choose a longer one.")
+        return redirect(url_for('disp_register'))
+    if len(request.form["username"])>16:
+        flash("Username too long! Please choose a shorter one.")
+        return redirect(url_for('disp_register'))
+    
+    if len(request.form["pass"])<4:
+        flash("Password too short! Please choose a longer one.")
+        return redirect(url_for('disp_register'))
+    if len(request.form["pass"])>16:
+        flash("Password too long! Please choose a shorter one.")
+        return redirect(url_for('disp_register'))
+    
     if request.form["pass"]!=request.form["pass-conf"]:
         flash("Passwords do not match! Try again.")
         return redirect(url_for('disp_register'))
@@ -37,6 +54,7 @@ def auth_register():
     else:
         flash("Username already in use, please choose a different one.")
         return redirect(url_for('disp_register'))
+
     
 @app.route('/storylist', methods=["GET"])
 def home():
@@ -45,6 +63,7 @@ def home():
     else:
         return redirect(url_for('disp_homepage'))
 
+    
 @app.route('/story/<storyname>', methods=["GET"])
 def disp_story(storyname):
     if 'username' in session:
@@ -52,6 +71,7 @@ def disp_story(storyname):
     else:
         return redirect(url_for('disp_homepage'))
 
+    
 @app.route('/create')
 def create():
     return render_template('create.html')
@@ -60,7 +80,8 @@ def create():
 def auth_create():
     addStory(request.form['title'], "meme 'o clock", \
              request.form['content'], request.form['userid'])
-             
+
+    
 @app.route('/logout', methods=["GET"])
 def logout():
     if 'username' in session:
