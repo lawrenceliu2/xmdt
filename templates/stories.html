@@ -164,7 +164,8 @@
 	    	margin: 0 auto;
 	    	background-color: #cfcfcf;
 		box-sizing: border-box;
-	    	padding: 15px;
+	    padding: 15px;
+	    	top: 50px;
 	    }
 
 	.cred {
@@ -192,6 +193,9 @@
 	    	border-radius: 5px;
 	    }
 	    
+	    #logout-button:hover {
+	    	color: #555;
+	    }
         </style>
   </head>
   <body>
@@ -199,9 +203,10 @@
       <div id="style-bar">
       </div>
       <div id="content">
-	    <h1 style="font-family: monospace; margin-top: 0;">Stories</h1>
-	    <hr style="background-color: #888">
+	<h1 style="margin-top: 0; float: left;">Stories</h1>
+	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/logout"><span id="logout-button" style="font-size: 20px; margin-right: 5px;">logout</span></a>
 	    <div id="stories-container">
+	    <hr style="background-color: #888">
 	      <ul style="list-style: none;">
 	      {% for item in stories %}
 	      <a href="/story?story="{{ item.url }}>{{ item.title }}</a>
