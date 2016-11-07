@@ -31,3 +31,6 @@
 - Fully functioning login/register mechanics, complete with jinja error messages, proper sessioning, and hashed passwords.
 - Story stuff in construction
 
+11/7/16
+- Final story displaying and adding code
+- Pre-completion general debugging
