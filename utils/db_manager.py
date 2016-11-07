@@ -65,10 +65,10 @@ def fullStory(title):
      q = "SELECT content FROM " + title + ";"
      stories.execute(q)
      contents = stories.fetchall()
-#     story = ""
-#     for part in contents:
-#          story = story + part
-     return contents
+     story = []
+     for part in contents:
+          story.append(str(part[0]))
+     return story
 
 #def lastContent(title):
 #     sdb = sqlite3.connect("data/stories.db")
@@ -88,7 +88,7 @@ def getStories():
      stor = dict()
      for y in x:
           b = str(y[0])
-#          print b
+          #print b
           stor[sanitize(b)] = {"story": fullStory(b), "title": b}
      return stor
 

@@ -196,8 +196,8 @@
 	<div id="info-pane-wrapper">
 	    <h1 style="margin: 3px 5px;">{{ story.title }}</h1>
 	    <div id="story-pane">
-	      {% for item in story.paragraphs %}
-		<p>{{ story.paragraphs.item }}</p>
+	      {% for item in story.story %}
+		<p>{{ item }}</p>
 		{% endfor %}
 	    </div>
 	    <hr style="background-color: #e7e7e7">
