@@ -44,18 +44,21 @@ def addUser(username, password):
 def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
+     title = title.replace(" ", "_")
 
      q = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + title + "'"
-     boo = stories.execute(q)
-     if boo == 0:
+     boo = stories.execute(q).fetchall()
+     if len(boo) == 0:
           q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
           stories.execute(q)
           addToStory(title, content, userid)
           sdb.commit()
+     else: print "failure"
      
 def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
+     title = title.replace(" ", "_")
      
      q = "INSERT INTO " + title + " VALUES (\"%s\", %s)" % (content, userid)
      stories.execute(q)
@@ -64,6 +67,7 @@ def addToStory(title, content, userid):
 def fullStory(title):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
+     title = title.replace(" ", "_")
      
      q = "SELECT content FROM " + title + ";"
      stories.execute(q)
@@ -82,7 +86,7 @@ def getStories():
      x = stories.fetchall()
      stor = dict()
      for y in x:
-          b = str(y[0])
+          b = str(y[0]).replace("_", " ")
           #print b
           stor[sanitize(b)] = {"story": fullStory(b), "title": b}
      return stor
@@ -100,6 +104,7 @@ def hasContributed(title, username):
      x = getID(username)
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
+     title = title.replace(" ", "_").replace("-", "_")
 
      q = "SELECT * FROM " + title + " WHERE userid=%s;" % (x)
      stories.execute(q)
