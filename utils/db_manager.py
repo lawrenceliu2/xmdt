@@ -41,20 +41,20 @@ def addUser(username, password):
           return 1
      return 0
     
-def addStory(title, timestamp, content, userid):
+def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     q = "CREATE TABLE " + title + " (timestamp text, content text, userid integer);"
+     q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
      stories.execute(q)
-     addToStory(title, timestamp, content, userid)
+     addToStory(title, content, userid)
      sdb.commit()
      
-def addToStory(title, timestamp, content, userid):
+def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "INSERT INTO " + title + " VALUES (\"%s\", \"%s\", %s)" % (timestamp, content, userid)
+     q = "INSERT INTO " + title + " VALUES (\"%s\", %s)" % (content, userid)
      stories.execute(q)
      sdb.commit()
      
@@ -87,7 +87,7 @@ def getStories():
      x = stories.fetchall()
      stor = dict()
      for y in x:
-          b = y[0]
+          b = str(y[0])
 #          print b
           stor[sanitize(b)] = {b : fullStory(b)}
      return stor

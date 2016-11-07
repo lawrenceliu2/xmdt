@@ -160,10 +160,10 @@
 
 	    #stories-container {
 	    	position: relative;
-	    	width: 75%;
+	    	width: 100%;
 	    	height: calc(100% - 50px);
 	    	margin: 0 auto;
-	    	background-color: #cfcfcf;
+	    	background-color: #e7e7e7;
 		box-sizing: border-box;
 	    padding: 15px;
 	    	top: 50px;
@@ -221,11 +221,11 @@
 	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/logout"><span id="logout-button" style="font-size: 20px; margin-right: 5px;">logout</span></a>
 	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/create"><span id="logout-button" style="font-size: 20px; margin-right: 25px;">create story</span></a>
 	    <div id="stories-container">
-	      <ul style="list-style: none;">
+	      <!--<ul style="list-style: none;">-->
 	      {% for item in stories %}
 	      <li><a class="story-entry" href="/story/"{{ item }}>{{ item }}.title</a></li>
 	      {% endfor %}
-		</ul>
+		<!--</ul>-->
 	    </div>
       </div> 
     </div>

@@ -76,7 +76,7 @@ def home():
         return redirect(url_for('disp_homepage'))
 
     
-@app.route('/story/<storyname>', methods=["GET"])
+@app.route('/story/<string:storyname>', methods=["GET"])
 def disp_story(storyname):
     if 'username' in session:
         return render_template('story.html',story=getStories()[str(storyname)])
@@ -94,9 +94,8 @@ def create():
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
-    addStory(request.form['title'], "meme 'o clock", request.form['init'], getID(session["username"]))
-    redirect(url_for('disp_story',storyname=str(sanitize(request.form['title']))))
-    
+    addStory(request.form['title'], request.form['init'], getID(session["username"]))
+    return redirect(url_for('home'))
 
 @app.route('/logout', methods=["GET"])
 def logout():
