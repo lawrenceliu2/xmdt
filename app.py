@@ -103,9 +103,6 @@ def create():
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
-    print request.form['title']
-    print request.form['init']
-    print getID(session["username"])
     addStory(request.form['title'], request.form['init'], getID(session["username"]))
     return redirect(url_for('home'))
 
