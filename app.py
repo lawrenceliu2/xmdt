@@ -58,8 +58,8 @@ def create():
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
-    addStory(request.form['title'], "meme 'o clock", \
-             request.form['content'], request.form['userid'])
+    addStory(request.form['title'], "meme 'o clock", request.form['init'], getID(session["username"]))
+    redirect(url_for('disp_story('+sanitize(request.form['title'])+')'))
              
 @app.route('/logout', methods=["GET"])
 def logout():
