@@ -90,9 +90,11 @@ def create():
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
-    addStory(request.form['title'], "meme 'o clock", request.form['init'], getID(session["username"]))
-    redirect(url_for('disp_story',storyname=str(sanitize(request.form['title']))))
-    
+    print request.form['title']
+    print request.form['init']
+    print getID(session["username"])
+    addStory(request.form['title'], request.form['init'], getID(session["username"]))
+    return redirect(url_for('disp_story',storyname=str(sanitize(request.form['title']))))
 
 @app.route('/logout', methods=["GET"])
 def logout():
