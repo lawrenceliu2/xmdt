@@ -1,6 +1,6 @@
 # Xtreme Meme Dream Team
 import os
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, flash, request, render_template, redirect, url_for, session
 from utils.db_manager import *
 
 app = Flask(__name__)
@@ -52,16 +52,22 @@ def disp_story(storyname):
 def create():
     return render_template('create.html')
 
+<<<<<<< HEAD
 @app.route('/cauth', methods=["POST"])
 def auth_create():
     addStory(request.form['title'], "meme 'o clock", \
              request.form['content'], request.form['userid']
              
 @app.route('/logout')
+=======
+@app.route('/logout', methods=["GET"])
+>>>>>>> fac4f33de729ba8d883787dffd9f4d7ff95e7380
 def logout():
     if 'username' in session:
         session.pop('username')
-    return render_template('login.html', message="Successfully logged out.")
+    #return render_template('login.html', message="Successfully logged out.")
+    flash("Successfully logged out.")
+    return redirect(url_for("disp_homepage"))
 
 
 if (__name__ == "__main__"):
