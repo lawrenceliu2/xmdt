@@ -59,7 +59,7 @@ def create():
 @app.route('/cauth', methods=["POST"])
 def auth_create():
     addStory(request.form['title'], "meme 'o clock", \
-             request.form['content'], request.form['userid'])
+             request.form['init'], getID(session['username']))
              
 @app.route('/logout', methods=["GET"])
 def logout():
