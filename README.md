@@ -32,5 +32,5 @@
 - Story stuff in construction
 
 11/7/16
-- Final story displaying and adding code
+- Final story additions - creation, contribution, and display
 - Pre-completion general debugging
