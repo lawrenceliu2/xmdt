@@ -162,7 +162,7 @@
 	    	position: relative;
 	    	width: 75%;
 	    	height: calc(100% - 50px);
-	    	margin: 0 auto;
+	    	margin: 50px auto;
 	    	background-color: #cfcfcf;
 		box-sizing: border-box;
 	    	padding: 15px;
@@ -192,6 +192,23 @@
 	    	background-color: #fff;
 	    	border-radius: 5px;
 	    }
+
+	    input[type=submit] {
+		background-color: #fff;
+		border: none;
+		outline: none;
+		padding: 10px 20px;
+		font-size: 14px;
+		border-radius: 5px;
+		font-family: "Tahoma","DejaVu Sans",sans-serif;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	input[type=submit]:active {
+		background: linear-gradient(to right,rgba(255,194,150,0.25),rgba(240,115,115,0.25));
+		box-shadow: inset 1px 1px 10px #BAA8A6;
+	}
 	    
         </style>
   </head>
@@ -200,8 +217,8 @@
       <div id="style-bar">
       </div>
       <div id="content">
-	    <h1 style="font-family: monospace; margin-top: 0;">Create New Story</h1>
-	    <hr style="background-color: #888">
+	    <h1 style="margin-top: 0; float: left">Create New Story</h1>
+	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/storylist"><span id="logout-button" style="font-size: 20px; margin-right: 5px;">back</span></a>
 	    <div id="form-container">
 	      <form id="create-story-form" action=[FORM ACTION HERE] method="POST">
 		Story Title:<br>
@@ -209,7 +226,9 @@
 		<br><br>
 		Initial Paragraph:<br>
 		<textarea class="cred" id="init-para" name="init"></textarea>
-		</form>
+		<br><br>
+		<input type="submit" value="Create Story">
+	      </form>
 	    </div>
       </div> 
     </div>

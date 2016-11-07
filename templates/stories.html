@@ -208,7 +208,6 @@
 	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/logout"><span id="logout-button" style="font-size: 20px; margin-right: 5px;">logout</span></a>
 	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/create"><span id="logout-button" style="font-size: 20px; margin-right: 25px;">create story</span></a>
 	    <div id="stories-container">
-	    <hr style="background-color: #888">
 	      <ul style="list-style: none;">
 	      {% for item in stories %}
 	      <a href="/story?story="{{ item.url }}>{{ item.title }}</a>
