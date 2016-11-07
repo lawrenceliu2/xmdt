@@ -197,6 +197,19 @@
 	    #logout-button:hover {
 	    	color: #555;
 	    }
+
+	    .story-entry {
+	    text-decoration: none;
+	    color: #222;
+	    }
+
+	    .story-entry:hover {
+		color: #555;
+	    }
+
+	    li {
+		margin: 5px 0;
+	    }
         </style>
   </head>
   <body>
@@ -210,7 +223,7 @@
 	    <div id="stories-container">
 	      <ul style="list-style: none;">
 	      {% for item in stories %}
-	      <a href="/story/"{{ item }}>{{ item.title }}</a>
+	      <li><a class="story-entry" href="/story/"{{ item }}>{{ item }}.title</a></li>
 	      {% endfor %}
 		</ul>
 	    </div>

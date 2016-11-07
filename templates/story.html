@@ -208,7 +208,7 @@
 	    <h1 style="font-family: monospace; margin-top: 0;">{{ story.title }}</h1>
 	    <div id="story-pane">
 	      {% for item in story.paragraphs %}
-		<p>{{ item }}</p>
+		<p>{{ story.paragraphs.item }}</p>
 	      {% endfor %}
 	    <hr style="background-color: #e7e7e7">
 	    <div id="story-input">
