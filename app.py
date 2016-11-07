@@ -1,6 +1,6 @@
 # Xtreme Meme Dream Team
 import os
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, flash, request, render_template, redirect, url_for, session
 from utils.db_manager import *
 
 app = Flask(__name__)
@@ -57,6 +57,7 @@ def logout():
     if 'username' in session:
         session.pop('username')
     #return render_template('login.html', message="Successfully logged out.")
+    flash("Successfully logged out.")
     return redirect(url_for("disp_homepage"))
 
 
