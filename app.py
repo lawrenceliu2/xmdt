@@ -104,6 +104,11 @@ def logout():
     flash("Successfully logged out.")
     return redirect(url_for("disp_homepage"))
 
+@app.route('/add', methods=["POST"])
+def auth_add():
+    addToStory(request.form['title'], request.form['content'], getID(session["username"]))
+    return redirect("/story/<string:title>")
+
 
 if (__name__ == "__main__"):
     app.debug = True
