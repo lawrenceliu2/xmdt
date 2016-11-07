@@ -36,7 +36,7 @@
 	    }
             
             #info-pane-wrapper {
-                width: calc(100% - 300px);
+                width: 100%;
 		/*height: calc(100% - 100px);*/
 	    	height: 100%;
                 position: relative;
@@ -177,6 +177,10 @@
 	    	height: 100%;
 	    	resize: none;
 	    }
+
+	    #back-button:hover, #logout-button:hover {
+	    	color: #555;
+	    }
         </style>
   </head>
   <body>
@@ -184,7 +188,9 @@
       <div id="style-bar">
       </div>
       <div id="content">
-	<div id="left-sidebar">
+	<a style="float: left; font-size: 28px; text-decoration: none; color: #000;" href="/storylist"><span id="back-button" style="font-size: 20px; margin-top: 0;">&lt; back to story list</span></a>
+	<a style="float: right; font-size: 28px; text-decoration: none; color: #000;" href="/logout"><span id="logout-button" style="font-size: 20px; margin-right: 5px;">logout</span></a>
+	<!--<div id="left-sidebar">
 	  <div id="rev-log">
 	    <h3 style="font-weight: 400">Revision History</h3>
 	    <hr>
@@ -195,18 +201,18 @@
 	    </div>
 	  </div>
 	  <!--<div id="story-list">
-	  </div>-->
-	</div>
+	  </div>
+	</div>-->
 	<div id="info-pane-wrapper">
 	  <div id="info-pane-content">
-	    <h1 style="font-family: monospace; margin-top: 0;">Story title</h1>
+	    <h1 style="font-family: monospace; margin-top: 0;">{{ story.title }}</h1>
 	    <div id="story-pane">
-	      {% for item in stories %}
+	      {% for item in story.paragraphs %}
 	      <div style="background-color: rgba("{{ item.r }}","{{ item.g }}","{{ item.b }}",0.1);" class="story-entry">
-		<p>{{item[0] }}</p>
+		<p>{{ item }}</p>
 	      </div>
 	      {% endfor %}
-	    <hr style="background-color: #888">
+	    <hr style="background-color: #e7e7e7">
 	    <div id="story-input">
 	      <textarea name="story-input" id="story-input-input"></textarea>
 	      </div>
