@@ -64,18 +64,18 @@ def fullStory(title):
      q = "SELECT content FROM " + title + ";"
      stories.execute(q)
      contents = stories.fetchall()
-     story = ""
-     for part in contents:
-          story = story + part
-     return story
+#     story = ""
+#     for part in contents:
+#          story = story + part
+     return contents
 
-def lastContent(title):
-     sdb = sqlite3.connect("data/stories.db")
-     stories = sdb.cursor()
-     
-     q = "SELECT LAST(content) FROM " + title + ";"
-     stories.execute(q)
-     return stories.fetchall()
+#def lastContent(title):
+#     sdb = sqlite3.connect("data/stories.db")
+#     stories = sdb.cursor()
+#     
+#     q = "SELECT LAST(content) FROM " + title + ";"
+#     stories.execute(q)
+#     return stories.fetchall()
      
 def getStories():
      sdb = sqlite3.connect("data/stories.db")
@@ -84,7 +84,10 @@ def getStories():
      q = "SELECT name FROM sqlite_master WHERE type = 'table';"
      stories.execute(q)
      x = stories.fetchall()
-     return x
+     stor = dict()
+     for y in x:
+          stor[sanitize(y)] = {y : fullStory(y)}
+     return stor
 
 def getID(username):
      udb = sqlite3.connect("data/userdata.db")
