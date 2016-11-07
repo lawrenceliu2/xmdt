@@ -89,7 +89,7 @@ def getStories():
      for y in x:
           b = str(y[0])
 #          print b
-          stor[sanitize(b)] = {b : fullStory(b)}
+          stor[sanitize(b)] = {story: fullStory(b), title: b}
      return stor
 
 def getID(username):
