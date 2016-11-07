@@ -117,7 +117,7 @@ def logout():
 def auth_add():
     print request.form['title']
     addToStory(request.form['title'], request.form['story-input'], getID(session['username']))
-    return redirect(url_for("disp_story", storyname=request.form['title']))
+    return redirect(url_for("disp_story", storyname=sanitize(request.form['title'])))
 
 
 if (__name__ == "__main__"):
