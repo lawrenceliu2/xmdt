@@ -28,7 +28,6 @@
 - New routing, utilizing redirects.
 
 11/6/16
-- Login.html tweaks.
-- New getStories function.
-- create new stories/show fullstory/ add to existing stories
+- Fully functioning login/register mechanics, complete with jinja error messages, proper sessioning, and hashed passwords.
+- Story stuff in construction
 
