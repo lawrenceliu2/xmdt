@@ -3,7 +3,7 @@ import os
 from flask import Flask, request, render_template, redirect, url_for, session
 from utils.db_manager import *
 
-app = Flask(__name__, static_url_path='/assets')
+app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 @app.route('/')
@@ -41,6 +41,10 @@ def home():
     else:
         return redirect(url_for('disp_homepage'))
 
+@app.route('/story/<storyname>', methods=["GET"])
+def disp_story(storyname):
+    return render_template('story.html',story=storyname)
+
 @app.route('/create')
 def create():
     return render_template('create.html')
@@ -52,6 +56,6 @@ def logout():
     return render_template('login.html', message="Successfully logged out.")
 
 
-if __name__=="__main__":
+if (__name__ == "__main__"):
     app.debug = True
     app.run()
