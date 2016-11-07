@@ -83,9 +83,11 @@ def disp_story(storyname):
             return render_template('story.html',story=getStories()[str(storyname)],hasCont=hasContributed(storyname,session["username"]))
         else:
             storyData = getStories()[str(storyname)]
-            storyDataStory = storyData["story"]
-            storyDataStory = storyDataStory[len(storyDataStory):]
-            return render_template('story.html',story=storyData)
+            dic = {}
+            for i in storyData:
+                dic[i]=storyData[i]
+            dic["story"] = [dic["story"][-1]]
+            return render_template('story.html',story=dic)
             
     else:
         return redirect(url_for('disp_homepage'))
