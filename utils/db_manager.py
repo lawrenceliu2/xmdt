@@ -45,11 +45,10 @@ def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     try:
-          q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
-          stories.execute(q)
-          addToStory(title, content, userid)
-          sdb.commit()
+     q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
+     stories.execute(q)
+     addToStory(title, content, userid)
+     sdb.commit()
      
 def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
@@ -75,7 +74,7 @@ def lastContent(title):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "SELECT LAST(content) FROM " + title + ";"
+     q = "SELECT content FROM " + title + " ORDER BY clumn DESC LIMIT 1;"
      stories.execute(q)
      return stories.fetchall()
      
