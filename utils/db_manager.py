@@ -50,7 +50,7 @@ def addStory(title, content, userid):
      addToStory(title, content, userid)
      sdb.commit()
      
-def addToStory(title,  content, userid):
+def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
@@ -87,7 +87,7 @@ def getStories():
      x = stories.fetchall()
      stor = dict()
      for y in x:
-          b = y[0]
+          b = str(y[0])
 #          print b
           stor[sanitize(b)] = {b : fullStory(b)}
      return stor
