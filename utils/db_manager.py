@@ -39,32 +39,16 @@ def addUser(username, password):
           users.execute(q)
           udb.commit()
           return 1
-     else:
-          try:
-               if nameAvail(username):
-                    q = "SELECT MAX(userid) FROM users;"
-                    users.execute(q)
-                    x = users.fetchall()
-                    q = '''INSERT INTO users(username, pass, userid)
-                    VALUES("%s", "%s", %s)''' % (username, password, x[0][0] + 1,)
-                    users.execute(q)
-                    udb.commit()
-                    return 1
-          except:
-               return 0
+     return 0
     
 def addStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     try:
-          q = "CREATE TABLE " + title + " (timestamp text, content text, userid integer);"
-          stories.execute(q)
-          addToStory(title, timestamp, content, userid)
-          sdb.commit()
-          return 1
-     except:
-          return 0
+     q = "CREATE TABLE " + title + " (timestamp text, content text, userid integer);"
+     stories.execute(q)
+     addToStory(title, timestamp, content, userid)
+     sdb.commit()
      
 def addToStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
