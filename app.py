@@ -60,6 +60,7 @@ def create():
 def auth_create():
     addStory(request.form['title'], "meme 'o clock", request.form['init'], getID(session["username"]))
     redirect(url_for('disp_story('+sanitize(request.form['title'])+')'))
+    
              
 @app.route('/logout', methods=["GET"])
 def logout():
