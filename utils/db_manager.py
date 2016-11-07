@@ -34,8 +34,7 @@ def addUser(username, password):
           q = "SELECT MAX(userid) FROM users;"
           users.execute(q)
           x = users.fetchall()
-          q = '''INSERT INTO users(username, pass, userid)
- VALUES("%s", "%s", %s)''' % (username, m, x[0][0] + 1,)
+          q = '''INSERT INTO users(username, pass, userid) VALUES("%s", "%s", %s)''' % (username, m, x[0][0] + 1,)
           users.execute(q)
           udb.commit()
           return 1
@@ -45,13 +44,11 @@ def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     q = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + title + "'"
-     boo = stories.execute(q)
-     if boo == 0:
-          q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
-          stories.execute(q)
-          addToStory(title, content, userid)
-          sdb.commit()
+     q = "CREATE TABLE " + title + "(\"content\" text, \"userid\" integer)"
+     print q
+     stories.execute(q)
+     addToStory(title, content, userid)
+     sdb.commit()
      
 def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
