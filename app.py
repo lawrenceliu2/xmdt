@@ -41,6 +41,10 @@ def home():
     else:
         return redirect(url_for('disp_homepage'))
 
+@app.route('/create')
+def create():
+    return render_template('create.html')
+
 @app.route('/logout')
 def logout():
     if 'username' in session:
