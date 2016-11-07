@@ -86,7 +86,11 @@ def disp_story(storyname):
     
 @app.route('/create')
 def create():
-    return render_template('create.html')
+    if 'username' in session:
+        return render_template('create.html')
+    else:
+        return redirect(url_for('disp_homepage'))
+
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
@@ -100,7 +104,6 @@ def auth_create():
 def logout():
     if 'username' in session:
         session.pop('username')
-    #return render_template('login.html', message="Successfully logged out.")
     flash("Successfully logged out.")
     return redirect(url_for("disp_homepage"))
 
