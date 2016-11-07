@@ -23,16 +23,20 @@ def authenticate():
         session["username"] = request.form["username"]
         return redirect(url_for('home'))
     else:
-        return render_template('login.html', message="Username and password do not match, please try again.")
+        flash("Username and password do not match, please try again.")
+        return redirect(url_for('home'))
 
 @app.route('/rauth', methods=["POST"])
 def auth_register():
     if request.form["pass"]!=request.form["pass-conf"]:
-        return render_template('register.html', message="Passwords do not match! Try again.")
+        flash("Passwords do not match! Try again.")
+        return redirect(url_for('disp_register'))
     elif addUser(request.form["username"], request.form["pass"]) == 1:
-        return render_template('login.html', message= "Account successfully created, please log in.")
+        flash("Account successfully created, please log in.")
+        return redirect(url_for('home'))
     else:
-        return render_template('register.html', message="Username already in use, please choose a different one.")
+        flash("Username already in use, please choose a different one.")
+        return redirect(url_for('disp_register'))
     
 @app.route('/storylist', methods=["GET"])
 def home():

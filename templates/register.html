@@ -142,7 +142,7 @@
 				</form>
 			</div>
 			{% with messages = get_flashed_messages() %}
-				{% if message is defined %}
+				{% if messages %}
 				<div id="error-window">
 			  {% for message in messages %}
 				  <p id="error-message">{{ message }}</p>
