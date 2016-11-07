@@ -112,5 +112,5 @@ def hasContributed(title, username):
 def sanitize(title):
      rx = re.compile('\W+')
      res = rx.sub(' ', title).strip()
-     res = res.replace(' ', '-')
+     res = res.replace(' ', '-').lower()
      return res
