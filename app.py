@@ -78,10 +78,17 @@ def create():
 
 @app.route('/cauth', methods=["POST"])
 def auth_create():
+<<<<<<< HEAD
     addStory(request.form['title'], "meme 'o clock", \
              request.form['content'], request.form['userid'])
 
     
+=======
+    addStory(request.form['title'], "meme 'o clock", request.form['init'], getID(session["username"]))
+    redirect(url_for('disp_story('+sanitize(request.form['title'])+')'))
+    
+             
+>>>>>>> 16690925d1cfbe1d50265f1cbe7cec968057f710
 @app.route('/logout', methods=["GET"])
 def logout():
     if 'username' in session:
