@@ -3,7 +3,7 @@ import os
 from flask import Flask, request, render_template, redirect, url_for, session
 from utils.db_manager import *
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/assets')
 app.secret_key = os.urandom(32)
 
 @app.route('/')
