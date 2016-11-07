@@ -37,7 +37,7 @@ def auth_register():
 @app.route('/storylist')
 def home():
     if 'username' in session:
-        return render_template('story.html', stories=getStories())
+        return render_template('stories.html', stories=getStories())
     else:
         return redirect(url_for('disp_homepage'))
 
