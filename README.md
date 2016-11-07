@@ -30,5 +30,5 @@
 11/6/16
 - Login.html tweaks.
 - New getStories function.
-- 
+- create new stories/show fullstory/ add to existing stories
 
