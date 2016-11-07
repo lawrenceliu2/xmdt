@@ -34,7 +34,7 @@ def auth_register():
     else:
         return render_template('register.html', message="Username already in use, please choose a different one.")
     
-@app.route('/storylist')
+@app.route('/storylist', methods=["GET"])
 def home():
     if 'username' in session:
         return render_template('stories.html', stories=getStories())
