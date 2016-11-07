@@ -45,10 +45,14 @@ def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
+     q = "OBJECT_ID(" + title + " IS NOT NULL"
      stories.execute(q)
-     addToStory(title, content, userid)
-     sdb.commit()
+     boo = stories.fetchall()
+     if not boo:
+          q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
+          stories.execute(q)
+          addToStory(title, content, userid)
+          sdb.commit()
      
 def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
