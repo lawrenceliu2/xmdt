@@ -1,16 +1,17 @@
-import sqlite3, re
+import sqlite3, re, hashlib
 
 #need to retrive previous id instead
 
 def userAuth(username, password):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
+     m = hashlib.sha1(password).hexdigest()
      
      if not nameAvail(username):
           q = "SELECT * FROM users WHERE username = \"%s\";" % (username)
           users.execute(q)
           info = users.fetchall()
-          if (info[0][1] == password):
+          if (info[0][1] == m):
                return True
      return False
 
@@ -27,6 +28,20 @@ def nameAvail(username):
 def addUser(username, password):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
+<<<<<<< HEAD
+     m = hashlib.sha1(password).hexdigest()
+     
+     if nameAvail(username):
+          q = "SELECT MAX(userid) FROM users;"
+          users.execute(q)
+          x = users.fetchall()
+          q = '''INSERT INTO users(username, pass, userid)
+ VALUES("%s", "%s", %s)''' % (username, m, x[0][0] + 1,)
+          users.execute(q)
+          udb.commit()
+          return 1
+     else:
+=======
 
      try:
           if nameAvail(username):
@@ -39,6 +54,7 @@ def addUser(username, password):
                udb.commit()
                return 1
      except:
+>>>>>>> 739b3b55ab68efe382bcdbc37f101a3afe996bf6
           return 0
     
 def addStory(title, timestamp, content, userid):
