@@ -52,6 +52,11 @@ def disp_story(storyname):
 def create():
     return render_template('create.html')
 
+@app.route('/cauth', methods=["POST"])
+def auth_create():
+    addStory(request.form['title'], "meme 'o clock", \
+             request.form['content'], request.form['userid']
+             
 @app.route('/logout')
 def logout():
     if 'username' in session:
