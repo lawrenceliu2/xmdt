@@ -28,7 +28,6 @@ def nameAvail(username):
 def addUser(username, password):
      udb = sqlite3.connect("data/userdata.db")
      users = udb.cursor()
-<<<<<<< HEAD
      m = hashlib.sha1(password).hexdigest()
      
      if nameAvail(username):
@@ -41,21 +40,18 @@ def addUser(username, password):
           udb.commit()
           return 1
      else:
-=======
-
-     try:
-          if nameAvail(username):
-               q = "SELECT MAX(userid) FROM users;"
-               users.execute(q)
-               x = users.fetchall()
-               q = '''INSERT INTO users(username, pass, userid)
-               VALUES("%s", "%s", %s)''' % (username, password, x[0][0] + 1,)
-               users.execute(q)
-               udb.commit()
-               return 1
-     except:
->>>>>>> 739b3b55ab68efe382bcdbc37f101a3afe996bf6
-          return 0
+          try:
+               if nameAvail(username):
+                    q = "SELECT MAX(userid) FROM users;"
+                    users.execute(q)
+                    x = users.fetchall()
+                    q = '''INSERT INTO users(username, pass, userid)
+                    VALUES("%s", "%s", %s)''' % (username, password, x[0][0] + 1,)
+                    users.execute(q)
+                    udb.commit()
+                    return 1
+          except:
+               return 0
     
 def addStory(title, timestamp, content, userid):
      sdb = sqlite3.connect("data/stories.db")
