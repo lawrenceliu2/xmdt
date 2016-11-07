@@ -45,10 +45,9 @@ def addStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
 
-     q = "OBJECT_ID(" + title + " IS NOT NULL"
-     stories.execute(q)
-     boo = stories.fetchall()
-     if not boo:
+     q = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + title + "'"
+     boo = stories.execute(q)
+     if boo == 0:
           q = "CREATE TABLE " + title + " (\"content\" text, \"userid\" integer);"
           stories.execute(q)
           addToStory(title, content, userid)
