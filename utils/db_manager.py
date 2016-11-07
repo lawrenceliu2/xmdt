@@ -54,7 +54,7 @@ def addToStory(title, content, userid):
      sdb = sqlite3.connect("data/stories.db")
      stories = sdb.cursor()
      
-     q = "INSERT INTO " + title + " VALUES (\"%s\",\"%s\", %s)" % ("meme o clock",content, userid)
+     q = "INSERT INTO " + title + " VALUES (\"%s\", %s)" % (content, userid)
      stories.execute(q)
      sdb.commit()
      

@@ -79,7 +79,14 @@ def home():
 @app.route('/story/<string:storyname>', methods=["GET"])
 def disp_story(storyname):
     if 'username' in session:
-        return render_template('story.html',story=getStories()[str(storyname)])
+        if (hasContributed(storyname,session["username"])):
+            return render_template('story.html',story=getStories()[str(storyname)],hasCont=hasContributed(storyname,session["username"]))
+        else:
+            storyData = getStories()[str(storyname)]
+            storyDataStory = storyData["story"]
+            storyDataStory = storyDataStory[len(storyDataStory):]
+            return render_template('story.html',story=storyData)
+            
     else:
         return redirect(url_for('disp_homepage'))
 

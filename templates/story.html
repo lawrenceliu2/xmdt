@@ -207,7 +207,7 @@
 	      <textarea name="story-input" id="story-input-input"></textarea>
 	    </div>
 	    <div id="button-wrapper">
-	      <input type="submit" value="Submit">
+	      <input type="submit" {% if hasCont is defined %}disabled{% endif %} value="Submit">
 	      </div>
 	    </form>
 	  </div>
